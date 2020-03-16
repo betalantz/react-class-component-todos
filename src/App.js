@@ -32,6 +32,12 @@ class App extends Component {
     });
   };
 
+  handleItemDelete = id => {
+    console.log(id);
+    const newTodos = this.state.todos.filter(todo => todo.id !== id)
+    this.setState({todos: newTodos})
+  }
+
 
   render() {
     return (
@@ -39,9 +45,13 @@ class App extends Component {
         <h1>Todos:</h1>
         <Form 
           submitCallback={this.handleFormSubmit}
-          inputs={["Item", "Priority"]} 
-          submitValue={"New Todo"}/>
-        <List todos={this.state.todos} />
+          // inputs={["Item", "Priority"]} 
+          // submitValue={"New Todo"}
+          />
+        <List 
+          todos={this.state.todos}
+          handleDelete={this.handleItemDelete}
+        />
       </div>
     )
   }

@@ -11,6 +11,7 @@ class List extends Component {
             priority={todo.priority}
             key={todo.id}
             id={todo.id}
+            deleteCallback={this.props.handleDelete}
         />
     ))}
 
